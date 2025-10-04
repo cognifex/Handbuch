@@ -1,0 +1,139 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background-color: #f4f5f7;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg, #f4f5f7);
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1rem 0;
+  color: #1f2933;
+}
+
+header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.2rem;
+}
+
+header p {
+  margin: 0 auto 1.5rem;
+  max-width: 680px;
+  color: #52606d;
+}
+
+main {
+  padding: 0 0 4rem;
+}
+
+.loading,
+.error {
+  text-align: center;
+  color: #52606d;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.error {
+  color: #ab1c32;
+}
+
+.page {
+  background: #ffffff;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 2.5rem;
+  padding: 20mm;
+  box-sizing: border-box;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  border-radius: 12px;
+  color: #1f2933;
+}
+
+.page > :first-child {
+  margin-top: 0;
+}
+
+.page h1,
+.page h2,
+.page h3,
+.page h4 {
+  color: #102a43;
+}
+
+.page a {
+  color: #1d4ed8;
+}
+
+.page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.page table th,
+.page table td {
+  border: 1px solid #d9e2ec;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+}
+
+.page ul,
+.page ol {
+  margin-left: 1.2rem;
+}
+
+footer {
+  text-align: center;
+  color: #9aa5b1;
+  padding-bottom: 2rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1024px) {
+  .page {
+    width: calc(100% - 2rem);
+    min-height: auto;
+    padding: 2rem;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 20mm;
+}
+
+@media print {
+  :root {
+    background-color: #ffffff;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  header,
+  footer {
+    display: none;
+  }
+
+  main {
+    padding: 0;
+  }
+
+  .page {
+    margin: 0 auto;
+    box-shadow: none;
+    border-radius: 0;
+    page-break-after: always;
+  }
+
+  .page:last-of-type {
+    page-break-after: auto;
+  }
+}
