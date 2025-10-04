@@ -16,3 +16,13 @@ Dieses Repository enthält das Organisationshandbuch der VHS Lahnstein. Die Kapi
 - [09 – Anhang](kapitel/09-anhang/index.md)
 
 Jedes Kapitel liegt in einem eigenen Unterordner innerhalb von `kapitel/` und enthält eine `index.md` mit allen bisherigen Inhalten des Abschnitts.
+
+## Veröffentlichung auf GitHub Pages
+
+Für die Veröffentlichung der Dokumentation als zusammenhängendes DIN-A4-Dokument wurde unter `docs/` eine eigenständige Website hinterlegt. GitHub Pages kann so konfiguriert werden, dass der Ordner `docs/` als Quelle dient.
+
+1. Öffne die Repository-Einstellungen auf GitHub und aktiviere **Pages**.
+2. Wähle als Quelle `main`/`work` (je nach Standardbranch) und den Ordner **/docs**.
+3. Nach der Veröffentlichung ist die Dokumentation unter `https://<username>.github.io/<repository>/` abrufbar.
+
+Der Einstiegspunkt `docs/index.html` lädt alle Kapitel aus `docs/content/` und stellt sie als einzelne Seiten im DIN-A4-Layout dar. Die Layout-Vorgaben sind in `docs/assets/styles.css` hinterlegt. Die Markdown-Kapitel wurden mit dem Repository synchronisiert, so dass Aktualisierungen durch Kopieren in den `docs/content/` Ordner auf der Website sichtbar werden.

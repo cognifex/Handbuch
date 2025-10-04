@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dokumentation Qualitätsprojekt</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Dokumentation Qualitätsprojekt</h1>
+      <p>
+        Zusammenführung aller Kapitel als zusammenhängendes Dokument mit 
+        DIN&nbsp;A4-Seitenlayout für die Veröffentlichung über GitHub Pages.
+      </p>
+    </header>
+    <main>
+      <p id="status" class="loading">Inhalte werden geladen …</p>
+      <div id="document"></div>
+    </main>
+    <footer>
+      Erstellt für die Veröffentlichung auf GitHub Pages · Format optimiert für DIN&nbsp;A4.
+    </footer>
+    <script>
+      const sections = [
+        {
+          file: "content/01-rahmendaten-und-kontext.md",
+          heading: "01 – Rahmendaten und Kontext"
+        },
+        {
+          file: "content/02-ausgangslage-und-motivation.md",
+          heading: "02 – Ausgangslage und Motivation"
+        },
+        {
+          file: "content/03-leitfragen-und-projektziele.md",
+          heading: "03 – Leitfragen und Projektziele"
+        },
+        {
+          file: "content/04-vorgehensweise-und-arbeitspakete.md",
+          heading: "04 – Vorgehensweise und Arbeitspakete"
+        },
+        {
+          file: "content/05-ergebnisse-je-leitfrage.md",
+          heading: "05 – Ergebnisse je Leitfrage"
+        },
+        {
+          file: "content/06-zeitplan-und-meilensteine.md",
+          heading: "06 – Zeitplan und Meilensteine"
+        },
+        {
+          file: "content/07-wirkung-und-nachhaltigkeit.md",
+          heading: "07 – Wirkung und Nachhaltigkeit"
+        },
+        {
+          file: "content/08-naechste-schritte.md",
+          heading: "08 – Nächste Schritte"
+        },
+        {
+          file: "content/09-zusammenfassung.md",
+          heading: "09 – Zusammenfassung"
+        }
+      ];
+
+      const statusNode = document.getElementById("status");
+      const docNode = document.getElementById("document");
+
+      async function renderDocument() {
+        try {
+          marked.setOptions({
+            gfm: true,
+            breaks: false,
+            mangle: false,
+            headerIds: true
+          });
+
+          for (const section of sections) {
+            const response = await fetch(section.file);
+            if (!response.ok) {
+              throw new Error(`Konnte ${section.file} nicht laden (${response.status})`);
+            }
+
+            const markdown = await response.text();
+            const html = marked.parse(markdown);
+
+            const page = document.createElement("section");
+            page.className = "page";
+
+            const heading = document.createElement("h1");
+            heading.textContent = section.heading;
+            page.appendChild(heading);
+
+            const contentWrapper = document.createElement("div");
+            contentWrapper.innerHTML = html;
+            page.appendChild(contentWrapper);
+
+            docNode.appendChild(page);
+          }
+
+          statusNode?.remove();
+        } catch (error) {
+          console.error(error);
+          if (statusNode) {
+            statusNode.textContent = "Fehler beim Laden der Inhalte. Bitte versuchen Sie es erneut.";
+            statusNode.className = "error";
+          }
+        }
+      }
+
+      if (typeof marked === "undefined") {
+        statusNode.textContent = "Konvertierungsbibliothek konnte nicht geladen werden.";
+        statusNode.className = "error";
+      } else {
+        renderDocument();
+      }
+    </script>
+  </body>
+</html>
