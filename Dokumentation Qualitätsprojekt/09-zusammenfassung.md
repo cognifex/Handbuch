@@ -1,0 +1,3 @@
+# Zusammenfassung
+
+Das Qualitätsprojekt „Erstellung Organisationshandbuch“ hat die VHS Lahnstein befähigt, ihre Arbeitsabläufe strukturiert darzustellen, Schnittstellen zu klären und nachhaltige Verbesserungsmechanismen zu etablieren. Damit sind die Voraussetzungen für die anstehende Rezertifizierung und den kontinuierlichen Qualitätsdialog erfüllt.【F:kapitel/02-rollen-und-verantwortlichkeiten/index.md†L5-L147】【F:kapitel/03-prozesse/index.md†L64-L200】【F:kapitel/05-dokumentenmanagement-und-ablage/index.md†L9-L61】【F:kapitel/07-themen-und-fazit/index.md†L9-L76】【F:Dokumentationsformular_ZBQ_2025.txt†L1-L37】
