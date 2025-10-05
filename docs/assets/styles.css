@@ -130,6 +130,59 @@ main {
   margin-left: 1.2rem;
 }
 
+.page .footnote-ref {
+  font-size: 0.75em;
+  vertical-align: super;
+  margin-left: 0.1rem;
+}
+
+.page .footnote-ref a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page .footnote-ref a:hover,
+.page .footnote-ref a:focus {
+  text-decoration: underline;
+}
+
+.page .footnotes {
+  margin-top: 1.5rem;
+  padding-top: 0.5rem;
+  font-size: 0.9em;
+  color: #52606d;
+}
+
+.page .footnotes-separator {
+  border: none;
+  border-top: 1px solid #d9e2ec;
+  margin: 0 0 0.8rem;
+}
+
+.page .footnotes-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.page .footnotes-list li {
+  margin-bottom: 0.6rem;
+}
+
+.page .footnote-backrefs {
+  white-space: nowrap;
+}
+
+.page .footnote-backref {
+  margin-left: 0.35rem;
+  text-decoration: none;
+  font-size: 0.85em;
+}
+
+.page .footnote-backref:hover,
+.page .footnote-backref:focus {
+  text-decoration: underline;
+}
+
 footer {
   text-align: center;
   color: #9aa5b1;
