@@ -64,6 +64,31 @@
       const statusNode = document.getElementById("status");
       const docNode = document.getElementById("document");
 
+      const PAGE_HEIGHT_MM = 297;
+      const rootStyles = getComputedStyle(document.documentElement);
+      const pagePaddingValue = parseFloat(
+        rootStyles.getPropertyValue("--page-padding-mm")?.trim() ?? "20"
+      );
+      const PAGE_PADDING_MM = Number.isFinite(pagePaddingValue)
+        ? pagePaddingValue
+        : 20;
+
+      function getPxPerMillimeter() {
+        const probe = document.createElement("div");
+        probe.style.position = "absolute";
+        probe.style.width = "1mm";
+        probe.style.height = "1mm";
+        probe.style.visibility = "hidden";
+        document.body.appendChild(probe);
+        const { height } = probe.getBoundingClientRect();
+        document.body.removeChild(probe);
+        return height;
+      }
+
+      const pxPerMm = getPxPerMillimeter();
+      const maxContentHeightPx =
+        (PAGE_HEIGHT_MM - PAGE_PADDING_MM * 2) * pxPerMm;
+
       function loadScript(src) {
         return new Promise((resolve, reject) => {
           const script = document.createElement("script");
@@ -101,6 +126,72 @@
         throw lastError ?? new Error("Konvertierungsbibliothek konnte nicht geladen werden.");
       }
 
+      function createPage(title, continuationIndex = 0) {
+        const page = document.createElement("section");
+        page.className = "page";
+
+        const heading = document.createElement("h1");
+        if (continuationIndex === 0) {
+          heading.textContent = title;
+        } else if (continuationIndex === 1) {
+          heading.textContent = `${title} – Fortsetzung`;
+        } else {
+          heading.textContent = `${title} – Fortsetzung ${continuationIndex}`;
+        }
+        page.appendChild(heading);
+
+        const content = document.createElement("div");
+        content.className = "page-content";
+        page.appendChild(content);
+
+        docNode.appendChild(page);
+
+        return { page, content };
+      }
+
+      function appendNodeWithPagination({
+        nodes,
+        title
+      }) {
+        if (nodes.length === 0) {
+          return;
+        }
+
+        let continuationIndex = 0;
+        let { content, page } = createPage(title, continuationIndex);
+
+        const workQueue = nodes.filter(
+          (node) => !(node.nodeType === Node.TEXT_NODE && node.textContent?.trim() === "")
+        );
+
+        for (const node of workQueue) {
+          content.appendChild(node);
+          const contentHeight = content.getBoundingClientRect().height;
+
+          if (contentHeight <= maxContentHeightPx + 0.5) {
+            continue;
+          }
+
+          content.removeChild(node);
+
+          const hasContent = content.childNodes.length > 0;
+          if (!hasContent) {
+            // The node itself is higher than the available space – keep it on this page.
+            content.appendChild(node);
+            page.classList.add("page--overflow");
+            continue;
+          }
+
+          continuationIndex += 1;
+          ({ content, page } = createPage(title, continuationIndex));
+          content.appendChild(node);
+        }
+
+        if (content.childNodes.length === 0) {
+          docNode.removeChild(page);
+        }
+      }
+
       async function renderDocument() {
         try {
           const markedLib = await ensureMarked();
@@ -112,6 +203,8 @@
             headerIds: true
           });
 
+          docNode.innerHTML = "";
+
           for (const section of sections) {
             const response = await fetch(section.file);
             if (!response.ok) {
@@ -120,19 +213,12 @@
 
             const markdown = await response.text();
             const html = markedLib.parse(markdown);
-
-            const page = document.createElement("section");
-            page.className = "page";
-
-            const heading = document.createElement("h1");
-            heading.textContent = section.heading;
-            page.appendChild(heading);
-
-            const contentWrapper = document.createElement("div");
-            contentWrapper.innerHTML = html;
-            page.appendChild(contentWrapper);
-
-            docNode.appendChild(page);
+            const container = document.createElement("div");
+            container.innerHTML = html;
+            appendNodeWithPagination({
+              nodes: Array.from(container.childNodes),
+              title: section.heading
+            });
           }
 
           statusNode?.remove();

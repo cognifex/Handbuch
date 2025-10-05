@@ -2,11 +2,13 @@
   color-scheme: light;
   font-family: "Segoe UI", Roboto, sans-serif;
   background-color: #f4f5f7;
+  --page-padding-mm: 20;
 }
 
 body {
   margin: 0;
   background: var(--page-bg, #f4f5f7);
+  line-height: 1.4;
 }
 
 header {
@@ -47,26 +49,66 @@ main {
   width: 210mm;
   min-height: 297mm;
   margin: 0 auto 2.5rem;
-  padding: 20mm;
+  padding: calc(var(--page-padding-mm) * 1mm);
   box-sizing: border-box;
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
   border-radius: 12px;
   color: #1f2933;
+  font-size: 10pt;
+  line-height: 1.45;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
-.page > :first-child {
-  margin-top: 0;
+.page h1 {
+  margin: 0;
+  font-size: 1.65rem;
+  line-height: 1.2;
+  color: #102a43;
 }
 
-.page h1,
 .page h2,
 .page h3,
-.page h4 {
+.page h4,
+.page h5,
+.page h6 {
   color: #102a43;
 }
 
 .page a {
   color: #1d4ed8;
+}
+
+.page .page-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.page .page-content > * {
+  margin-block: 0;
+}
+
+.page .page-content > :first-child {
+  margin-top: 0;
+}
+
+.page.page--overflow {
+  position: relative;
+}
+
+.page.page--overflow::after {
+  content: "Inhalt überlappt die Seitenhöhe";
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.2rem;
+  font-size: 0.75rem;
+  color: #b91c1c;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.4rem;
 }
 
 .page table {
@@ -100,6 +142,11 @@ footer {
     width: calc(100% - 2rem);
     min-height: auto;
     padding: 2rem;
+    font-size: 1rem;
+  }
+
+  .page .page-content {
+    gap: 1.1rem;
   }
 }
 
@@ -131,6 +178,10 @@ footer {
     box-shadow: none;
     border-radius: 0;
     page-break-after: always;
+  }
+
+  .page.page--overflow::after {
+    display: none;
   }
 
   .page:last-of-type {
