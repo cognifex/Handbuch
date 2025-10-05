@@ -25,39 +25,53 @@
       const sections = [
         {
           file: "content/01-rahmendaten-und-kontext.md",
-          heading: "01 – Rahmendaten und Kontext"
+          heading: "01 – Rahmendaten und Kontext",
+          slug: "01-rahmendaten-und-kontext"
         },
         {
           file: "content/02-ausgangslage-und-motivation.md",
-          heading: "02 – Ausgangslage und Motivation"
+          heading: "02 – Ausgangslage und Motivation",
+          slug: "02-ausgangslage-und-motivation"
         },
         {
           file: "content/03-leitfragen-und-projektziele.md",
-          heading: "03 – Leitfragen und Projektziele"
+          heading: "03 – Leitfragen und Projektziele",
+          slug: "03-leitfragen-und-projektziele"
         },
         {
           file: "content/04-vorgehensweise-und-arbeitspakete.md",
-          heading: "04 – Vorgehensweise und Arbeitspakete"
+          heading: "04 – Vorgehensweise und Arbeitspakete",
+          slug: "04-vorgehensweise-und-arbeitspakete"
         },
         {
           file: "content/05-ergebnisse-je-leitfrage.md",
-          heading: "05 – Ergebnisse je Leitfrage"
+          heading: "05 – Ergebnisse je Leitfrage",
+          slug: "05-ergebnisse-je-leitfrage"
         },
         {
           file: "content/06-zeitplan-und-meilensteine.md",
-          heading: "06 – Zeitplan und Meilensteine"
+          heading: "06 – Zeitplan und Meilensteine",
+          slug: "06-zeitplan-und-meilensteine"
         },
         {
           file: "content/07-wirkung-und-nachhaltigkeit.md",
-          heading: "07 – Wirkung und Nachhaltigkeit"
+          heading: "07 – Wirkung und Nachhaltigkeit",
+          slug: "07-wirkung-und-nachhaltigkeit"
         },
         {
           file: "content/08-naechste-schritte.md",
-          heading: "08 – Nächste Schritte"
+          heading: "08 – Nächste Schritte",
+          slug: "08-naechste-schritte"
         },
         {
           file: "content/09-zusammenfassung.md",
-          heading: "09 – Zusammenfassung"
+          heading: "09 – Zusammenfassung",
+          slug: "09-zusammenfassung"
+        },
+        {
+          file: "content/quellen/index.md",
+          heading: "10 – Quellen",
+          slug: "quellen"
         }
       ];
 
@@ -91,6 +105,58 @@
 
       function sanitizeFootnoteId(id) {
         return id.replace(/[^A-Za-z0-9_-]/g, "-");
+      }
+
+      const footnoteRegistry = {
+        definitions: new Map(),
+        order: [],
+        orderMap: new Map(),
+        referenceCounts: new Map(),
+        backrefs: new Map()
+      };
+
+      function getNamespacedId(slug, id) {
+        return `${slug}__${id}`;
+      }
+
+      function registerDefinitions(definitions, section) {
+        if (!definitions || definitions.size === 0) {
+          return;
+        }
+
+        for (const [rawId, definition] of definitions.entries()) {
+          let targetSlug = section.slug;
+          let localId = rawId;
+
+          if (section.slug === "quellen") {
+            const parts = rawId.split("__");
+            if (parts.length < 2) {
+              console.warn(
+                `Fußnotendefinition ${rawId} in ${section.file} konnte keiner Quelle zugeordnet werden.`
+              );
+              continue;
+            }
+            targetSlug = parts.shift();
+            localId = parts.join("__");
+          }
+
+          if (!targetSlug) {
+            continue;
+          }
+
+          const namespacedId = getNamespacedId(targetSlug, localId);
+          if (
+            footnoteRegistry.definitions.has(namespacedId) &&
+            footnoteRegistry.definitions.get(namespacedId) !== definition
+          ) {
+            console.warn(
+              `Abweichende Definition für Fußnote ${namespacedId} wurde ignoriert.`
+            );
+            continue;
+          }
+
+          footnoteRegistry.definitions.set(namespacedId, definition);
+        }
       }
 
       function extractFootnotes(markdown) {
@@ -150,26 +216,22 @@
         };
       }
 
-      function applyFootnotes(container, { definitions, markedLib }) {
-        if (!definitions || definitions.size === 0) {
+      function applyFootnotes(container, { markedLib, section }) {
+        const sectionSlug = section.slug;
+        if (!sectionSlug || sectionSlug === "quellen") {
           return;
         }
 
-        const orderMap = new Map();
-        const orderList = [];
-        const referenceCounts = new Map();
-        const backrefs = new Map();
+        const footnotePattern = /\[\^([^\]\s]+)\]/g;
 
         function processTextNode(node) {
           const text = node.textContent ?? "";
-          const footnotePattern = /\[\^([^\]\s]+)\]/g;
           let match;
           let lastIndex = 0;
           let hasFootnote = false;
           const fragment = document.createDocumentFragment();
 
           while ((match = footnotePattern.exec(text)) !== null) {
-            hasFootnote = true;
             const prefix = text.slice(lastIndex, match.index);
             if (prefix) {
               fragment.appendChild(document.createTextNode(prefix));
@@ -179,31 +241,48 @@
             const rawId = match[1];
             const normalizedId = sanitizeFootnoteId(rawId);
 
-            if (!definitions.has(normalizedId)) {
+            const namespacedId = getNamespacedId(sectionSlug, normalizedId);
+            const definition = footnoteRegistry.definitions.get(namespacedId);
+
+            if (!definition) {
               fragment.appendChild(document.createTextNode(match[0]));
               continue;
             }
 
-            if (!orderMap.has(normalizedId)) {
-              orderMap.set(normalizedId, orderMap.size + 1);
-              orderList.push(normalizedId);
+            hasFootnote = true;
+
+            if (!footnoteRegistry.orderMap.has(namespacedId)) {
+              footnoteRegistry.orderMap.set(
+                namespacedId,
+                footnoteRegistry.order.length + 1
+              );
+              footnoteRegistry.order.push(namespacedId);
             }
 
-            const referenceIndex = orderMap.get(normalizedId);
-            const refCount = (referenceCounts.get(normalizedId) ?? 0) + 1;
-            referenceCounts.set(normalizedId, refCount);
+            const referenceIndex = footnoteRegistry.orderMap.get(namespacedId);
+            const refCount =
+              (footnoteRegistry.referenceCounts.get(namespacedId) ?? 0) + 1;
+            footnoteRegistry.referenceCounts.set(namespacedId, refCount);
 
-            const anchorId = `fnref-${normalizedId}-${refCount}`;
-            if (!backrefs.has(normalizedId)) {
-              backrefs.set(normalizedId, []);
+            const anchorId = `fnref-${namespacedId}-${refCount}`;
+            if (!footnoteRegistry.backrefs.has(namespacedId)) {
+              footnoteRegistry.backrefs.set(namespacedId, []);
             }
-            backrefs.get(normalizedId).push(anchorId);
+            footnoteRegistry.backrefs.get(namespacedId).push(anchorId);
+
+            if (
+              fragment.lastChild &&
+              fragment.lastChild.nodeType === Node.ELEMENT_NODE &&
+              fragment.lastChild.tagName === "SUP"
+            ) {
+              fragment.appendChild(document.createTextNode("\u202F"));
+            }
 
             const sup = document.createElement("sup");
             sup.className = "footnote-ref";
 
             const anchor = document.createElement("a");
-            anchor.href = `#fn-${normalizedId}`;
+            anchor.href = `#fn-${namespacedId}`;
             anchor.id = anchorId;
             anchor.textContent = String(referenceIndex);
 
@@ -237,8 +316,11 @@
 
         textNodes.forEach(processTextNode);
 
-        if (orderList.length === 0) {
-          return;
+      }
+
+      function createFootnoteSection({ markedLib }) {
+        if (footnoteRegistry.order.length === 0) {
+          return null;
         }
 
         const footnoteSection = document.createElement("section");
@@ -252,8 +334,8 @@
         list.className = "footnotes-list";
         footnoteSection.appendChild(list);
 
-        for (const identifier of orderList) {
-          const definition = definitions.get(identifier);
+        for (const identifier of footnoteRegistry.order) {
+          const definition = footnoteRegistry.definitions.get(identifier);
           if (!definition) {
             continue;
           }
@@ -273,7 +355,7 @@
             item.appendChild(definitionContainer.firstChild);
           }
 
-          const refAnchors = backrefs.get(identifier) ?? [];
+          const refAnchors = footnoteRegistry.backrefs.get(identifier) ?? [];
           if (refAnchors.length > 0) {
             const backrefContainer = document.createElement("span");
             backrefContainer.className = "footnote-backrefs";
@@ -287,7 +369,9 @@
               backrefLink.className = "footnote-backref";
               backrefLink.href = `#${anchorId}`;
               backrefLink.setAttribute("aria-label", "Zurück zum Text");
-              backrefLink.textContent = `↩︎${refAnchors.length > 1 ? index + 1 : ""}`;
+              backrefLink.textContent = `↩︎${
+                refAnchors.length > 1 ? index + 1 : ""
+              }`;
               backrefContainer.appendChild(backrefLink);
             });
 
@@ -301,7 +385,7 @@
           list.appendChild(item);
         }
 
-        container.appendChild(footnoteSection);
+        return footnoteSection;
       }
 
       function loadScript(src) {
@@ -420,6 +504,14 @@
 
           docNode.innerHTML = "";
 
+          footnoteRegistry.definitions.clear();
+          footnoteRegistry.order.length = 0;
+          footnoteRegistry.orderMap.clear();
+          footnoteRegistry.referenceCounts.clear();
+          footnoteRegistry.backrefs.clear();
+
+          const sectionContents = [];
+
           for (const section of sections) {
             const response = await fetch(section.file);
             if (!response.ok) {
@@ -427,12 +519,36 @@
             }
 
             const markdown = await response.text();
-            const { markdown: bodyMarkdown, definitions } =
-              extractFootnotes(markdown);
+            const { markdown: bodyMarkdown, definitions } = extractFootnotes(
+              markdown
+            );
+
+            sectionContents.push({ section, bodyMarkdown });
+            registerDefinitions(definitions, section);
+          }
+
+          for (const { section, bodyMarkdown } of sectionContents) {
             const html = markedLib.parse(bodyMarkdown);
             const container = document.createElement("div");
             container.innerHTML = html;
-            applyFootnotes(container, { definitions, markedLib });
+            applyFootnotes(container, { markedLib, section });
+
+            if (section.slug === "quellen") {
+              const placeholder = container.querySelector(
+                "[data-footnotes-placeholder]"
+              );
+              const footnoteSection = createFootnoteSection({ markedLib });
+              if (footnoteSection) {
+                if (placeholder) {
+                  placeholder.replaceWith(footnoteSection);
+                } else {
+                  container.appendChild(footnoteSection);
+                }
+              } else if (placeholder) {
+                placeholder.remove();
+              }
+            }
+
             appendNodeWithPagination({
               nodes: Array.from(container.childNodes),
               title: section.heading

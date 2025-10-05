@@ -19,13 +19,3 @@ Die nächsten Schritte priorisieren schnelle Wirkung, sichern Nachweise für die
 1. **Handbuchpflege institutionalisieren:** Jahresplanung für Updates und Review-Sitzungen im Qualitätszirkel verankern.[^fn1]
 2. **Digitalisierung schrittweise erweitern:** Scan- und Ablagestrukturen definieren, um CMX und Papierordner dauerhaft zu synchronisieren.[^fn7]
 3. **Wirkungskennzahlen entwickeln:** Kleine Kennzahlen-Setups (z. B. Einstufungsdurchlaufzeit, Vollständigkeit Unterlagen) pilotieren und für Entscheidungen nutzen.[^fn8]
-
-
-[^fn1]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–76.
-[^fn2]: Quelle: `Dokumentationsformular_ZBQ_2025.txt`, Zeilen 31–47.
-[^fn3]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 71–76.
-[^fn4]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 21–27.
-[^fn5]: Quelle: `kapitel/09-anhang/index.md`, Zeilen 3–67.
-[^fn6]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 13–67.
-[^fn7]: Quelle: `kapitel/05-dokumentenmanagement-und-ablage/index.md`, Zeilen 21–62.
-[^fn8]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 55–67.

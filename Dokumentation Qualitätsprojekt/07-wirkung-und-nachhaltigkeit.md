@@ -16,16 +16,3 @@ Das Qualitätsprojekt schafft einen spürbaren Mehrwert im Tagesgeschäft und li
 
 - **Kontinuierliche Verbesserung:** Der Themenplan definiert Review-Termine, während der Evaluationsbogen regelmäßiges Feedback sicherstellt – beides verankert das Handbuch als lebendes Dokument.[^fn7][^fn9]
 - **Wissenssicherung:** Durch klare Verantwortlichkeiten, Checklisten und dokumentierte Abläufe bleiben Know-how und Prozesswissen auch bei Personalwechseln erhalten.[^fn10][^fn11]
-
-
-[^fn1]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 3–76.
-[^fn2]: Quelle: `Dokumentationsformular_ZBQ_2025.txt`, Zeilen 31–47.
-[^fn3]: Quelle: `kapitel/02-rollen-und-verantwortlichkeiten/index.md`, Zeilen 5–147.
-[^fn4]: Quelle: `kapitel/05-dokumentenmanagement-und-ablage/index.md`, Zeilen 9–52.
-[^fn5]: Quelle: `kapitel/03-prozesse/index.md`, Zeilen 96–160.
-[^fn6]: Quelle: `kapitel/06-kommunikation/index.md`, Zeilen 27–53.
-[^fn7]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–76.
-[^fn8]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 13–76.
-[^fn9]: Quelle: `kapitel/09-anhang/index.md`, Zeilen 3–67.
-[^fn10]: Quelle: `kapitel/02-rollen-und-verantwortlichkeiten/index.md`, Zeilen 85–147.
-[^fn11]: Quelle: `kapitel/05-dokumentenmanagement-und-ablage/index.md`, Zeilen 21–62.

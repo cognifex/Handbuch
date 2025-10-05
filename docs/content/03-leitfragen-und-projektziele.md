@@ -64,29 +64,3 @@ Die Qualitätsgruppe leitete die Leitfragen direkt aus den ZBQ-Anforderungen und
 ## 3.5 Zusammenfassung des Zielsystems
 
 Die Leitfragen bilden ein geschlossenes Zielsystem: Rollen- und Prozessklarheit schafft die Grundlage für verlässliche Kommunikation und Infrastruktur, während strukturierte Evaluations- und Themenzyklen die Nachhaltigkeit sichern. Durch die Verzahnung von Rollenprofilen, Prozessketten, Dokumentenstandards und Feedbackschleifen kann die VHS Lahnstein sowohl die Rezertifizierungsanforderungen erfüllen als auch Alltagsprozesse stabilisieren.[^fn3][^fn4][^fn7][^fn12][^fn23][^fn22][^fn2]
-
-
-[^fn1]: Quelle: `kapitel/01-einleitung-und-geltungsbereich/index.md`, Zeilen 3–24.
-[^fn2]: Quelle: `Dokumentationsformular_ZBQ_2025.txt`, Zeilen 1–37.
-[^fn3]: Quelle: `kapitel/02-rollen-und-verantwortlichkeiten/index.md`, Zeilen 5–147.
-[^fn4]: Quelle: `kapitel/03-prozesse/index.md`, Zeilen 64–200.
-[^fn5]: Quelle: `kapitel/05-dokumentenmanagement-und-ablage/index.md`, Zeilen 9–62.
-[^fn6]: Quelle: `kapitel/05-dokumentenmanagement-und-ablage/index.md`, Zeilen 9–52.
-[^fn7]: Quelle: `kapitel/05-dokumentenmanagement-und-ablage/index.md`, Zeilen 9–61.
-[^fn8]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 21–27.
-[^fn9]: Quelle: `kapitel/05-dokumentenmanagement-und-ablage/index.md`, Zeilen 56–62.
-[^fn10]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 71–76.
-[^fn11]: Quelle: `kapitel/02-rollen-und-verantwortlichkeiten/index.md`, Zeilen 93–147.
-[^fn12]: Quelle: `kapitel/06-kommunikation/index.md`, Zeilen 5–58.
-[^fn13]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 28–39.
-[^fn14]: Quelle: `kapitel/03-prozesse/index.md`, Zeilen 120–129.
-[^fn15]: Quelle: `kapitel/06-kommunikation/index.md`, Zeilen 14–34.
-[^fn16]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 13–27.
-[^fn17]: Quelle: `kapitel/06-kommunikation/index.md`, Zeilen 25–43.
-[^fn18]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 13–39.
-[^fn19]: Quelle: `kapitel/06-kommunikation/index.md`, Zeilen 45–58.
-[^fn20]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–27.
-[^fn21]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–67.
-[^fn22]: Quelle: `kapitel/09-anhang/index.md`, Zeilen 3–67.
-[^fn23]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–76.
-[^fn24]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 13–76.
