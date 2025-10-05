@@ -89,6 +89,221 @@
       const maxContentHeightPx =
         (PAGE_HEIGHT_MM - PAGE_PADDING_MM * 2) * pxPerMm;
 
+      function sanitizeFootnoteId(id) {
+        return id.replace(/[^A-Za-z0-9_-]/g, "-");
+      }
+
+      function extractFootnotes(markdown) {
+        const lines = markdown.split(/\r?\n/);
+        const definitions = new Map();
+        const bodyLines = [];
+
+        for (let index = 0; index < lines.length; index += 1) {
+          const line = lines[index];
+          const match = line.match(/^\[\^([^\]]+)\]:\s*(.*)$/);
+
+          if (!match) {
+            bodyLines.push(line);
+            continue;
+          }
+
+          const identifier = sanitizeFootnoteId(match[1].trim());
+          let definitionText = match[2]?.trim() ?? "";
+
+          const continuation = [];
+          let lookahead = index + 1;
+          while (lookahead < lines.length) {
+            const nextLine = lines[lookahead];
+            if (/^( {2,}|\t)/.test(nextLine)) {
+              continuation.push(nextLine.trim());
+              lookahead += 1;
+              continue;
+            }
+
+            if (nextLine.trim() === "") {
+              continuation.push("");
+              lookahead += 1;
+              continue;
+            }
+
+            break;
+          }
+
+          if (continuation.length > 0) {
+            const merged = [definitionText, ...continuation]
+              .filter((segment) => segment !== undefined)
+              .join("\n")
+              .trim();
+            definitionText = merged;
+          }
+
+          if (definitionText) {
+            definitions.set(identifier, definitionText);
+          }
+
+          index = lookahead - 1;
+        }
+
+        return {
+          markdown: bodyLines.join("\n"),
+          definitions
+        };
+      }
+
+      function applyFootnotes(container, { definitions, markedLib }) {
+        if (!definitions || definitions.size === 0) {
+          return;
+        }
+
+        const orderMap = new Map();
+        const orderList = [];
+        const referenceCounts = new Map();
+        const backrefs = new Map();
+
+        function processTextNode(node) {
+          const text = node.textContent ?? "";
+          const footnotePattern = /\[\^([^\]\s]+)\]/g;
+          let match;
+          let lastIndex = 0;
+          let hasFootnote = false;
+          const fragment = document.createDocumentFragment();
+
+          while ((match = footnotePattern.exec(text)) !== null) {
+            hasFootnote = true;
+            const prefix = text.slice(lastIndex, match.index);
+            if (prefix) {
+              fragment.appendChild(document.createTextNode(prefix));
+            }
+
+            lastIndex = match.index + match[0].length;
+            const rawId = match[1];
+            const normalizedId = sanitizeFootnoteId(rawId);
+
+            if (!definitions.has(normalizedId)) {
+              fragment.appendChild(document.createTextNode(match[0]));
+              continue;
+            }
+
+            if (!orderMap.has(normalizedId)) {
+              orderMap.set(normalizedId, orderMap.size + 1);
+              orderList.push(normalizedId);
+            }
+
+            const referenceIndex = orderMap.get(normalizedId);
+            const refCount = (referenceCounts.get(normalizedId) ?? 0) + 1;
+            referenceCounts.set(normalizedId, refCount);
+
+            const anchorId = `fnref-${normalizedId}-${refCount}`;
+            if (!backrefs.has(normalizedId)) {
+              backrefs.set(normalizedId, []);
+            }
+            backrefs.get(normalizedId).push(anchorId);
+
+            const sup = document.createElement("sup");
+            sup.className = "footnote-ref";
+
+            const anchor = document.createElement("a");
+            anchor.href = `#fn-${normalizedId}`;
+            anchor.id = anchorId;
+            anchor.textContent = String(referenceIndex);
+
+            sup.appendChild(anchor);
+            fragment.appendChild(sup);
+          }
+
+          if (!hasFootnote) {
+            return;
+          }
+
+          const suffix = text.slice(lastIndex);
+          if (suffix) {
+            fragment.appendChild(document.createTextNode(suffix));
+          }
+
+          node.parentNode?.replaceChild(fragment, node);
+        }
+
+        const walker = document.createTreeWalker(
+          container,
+          NodeFilter.SHOW_TEXT,
+          null
+        );
+
+        const textNodes = [];
+        let currentNode;
+        while ((currentNode = walker.nextNode())) {
+          textNodes.push(currentNode);
+        }
+
+        textNodes.forEach(processTextNode);
+
+        if (orderList.length === 0) {
+          return;
+        }
+
+        const footnoteSection = document.createElement("section");
+        footnoteSection.className = "footnotes";
+
+        const separator = document.createElement("hr");
+        separator.className = "footnotes-separator";
+        footnoteSection.appendChild(separator);
+
+        const list = document.createElement("ol");
+        list.className = "footnotes-list";
+        footnoteSection.appendChild(list);
+
+        for (const identifier of orderList) {
+          const definition = definitions.get(identifier);
+          if (!definition) {
+            continue;
+          }
+
+          const item = document.createElement("li");
+          item.id = `fn-${identifier}`;
+          item.className = "footnote-item";
+
+          const definitionContainer = document.createElement("div");
+          definitionContainer.innerHTML = markedLib.parseInline(definition);
+
+          if (definitionContainer.childNodes.length === 0) {
+            definitionContainer.textContent = definition;
+          }
+
+          while (definitionContainer.firstChild) {
+            item.appendChild(definitionContainer.firstChild);
+          }
+
+          const refAnchors = backrefs.get(identifier) ?? [];
+          if (refAnchors.length > 0) {
+            const backrefContainer = document.createElement("span");
+            backrefContainer.className = "footnote-backrefs";
+
+            refAnchors.forEach((anchorId, index) => {
+              if (index > 0) {
+                backrefContainer.appendChild(document.createTextNode(" "));
+              }
+
+              const backrefLink = document.createElement("a");
+              backrefLink.className = "footnote-backref";
+              backrefLink.href = `#${anchorId}`;
+              backrefLink.setAttribute("aria-label", "Zurück zum Text");
+              backrefLink.textContent = `↩︎${refAnchors.length > 1 ? index + 1 : ""}`;
+              backrefContainer.appendChild(backrefLink);
+            });
+
+            if (item.childNodes.length > 0) {
+              item.appendChild(document.createTextNode(" "));
+            }
+
+            item.appendChild(backrefContainer);
+          }
+
+          list.appendChild(item);
+        }
+
+        container.appendChild(footnoteSection);
+      }
+
       function loadScript(src) {
         return new Promise((resolve, reject) => {
           const script = document.createElement("script");
@@ -212,9 +427,12 @@
             }
 
             const markdown = await response.text();
-            const html = markedLib.parse(markdown);
+            const { markdown: bodyMarkdown, definitions } =
+              extractFootnotes(markdown);
+            const html = markedLib.parse(bodyMarkdown);
             const container = document.createElement("div");
             container.innerHTML = html;
+            applyFootnotes(container, { definitions, markedLib });
             appendNodeWithPagination({
               nodes: Array.from(container.childNodes),
               title: section.heading
