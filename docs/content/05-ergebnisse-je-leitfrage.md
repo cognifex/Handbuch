@@ -46,3 +46,21 @@ Die Qualitätsgruppe überprüfte alle Leitfragen anhand der projektspezifischen
 - Die jährliche Evaluation liefert quantitative Einschätzungen zu Nutzung, Qualität und Beteiligung und dient als Trigger für Updates.[^fn15]
 
 **Ergebnis:** Die Leitfrage ist beantwortet, weil das Handbuch um konkrete Review-Mechanismen ergänzt wurde, die sowohl Qualitätsziele als auch Nutzerfeedback absichern.
+
+
+[^fn1]: Quelle: `Dokumentationsformular_ZBQ_2025.txt`, Zeilen 31–47.
+[^fn2]: Quelle: `kapitel/02-rollen-und-verantwortlichkeiten/index.md`, Zeilen 5–147.
+[^fn3]: Quelle: `kapitel/03-prozesse/index.md`, Zeilen 64–200.
+[^fn4]: Quelle: `kapitel/05-dokumentenmanagement-und-ablage/index.md`, Zeilen 9–52.
+[^fn5]: Quelle: `kapitel/02-rollen-und-verantwortlichkeiten/index.md`, Zeilen 85–147.
+[^fn6]: Quelle: `kapitel/05-dokumentenmanagement-und-ablage/index.md`, Zeilen 21–62.
+[^fn7]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 21–27.
+[^fn8]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 71–76.
+[^fn9]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 13–39.
+[^fn10]: Quelle: `kapitel/06-kommunikation/index.md`, Zeilen 5–58.
+[^fn11]: Quelle: `kapitel/03-prozesse/index.md`, Zeilen 120–129.
+[^fn12]: Quelle: `kapitel/06-kommunikation/index.md`, Zeilen 27–53.
+[^fn13]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 13–76.
+[^fn14]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–67.
+[^fn15]: Quelle: `kapitel/09-anhang/index.md`, Zeilen 3–67.
+[^fn16]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–76.
