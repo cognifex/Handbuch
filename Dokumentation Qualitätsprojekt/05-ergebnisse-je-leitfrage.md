@@ -9,11 +9,14 @@ Die Qualitätsgruppe überprüfte alle Leitfragen anhand der projektspezifischen
 - **Rollenprofilierung:** Das Handbuch beschreibt für alle zentralen Funktionen (Verwaltung BAMF, Einstufung, Frontoffice Nicht-BAMF, IT/EDV, Web/CMX, Geschäftsführung) Aufgaben, Verantwortlichkeiten und Schnittstellen, wodurch Vertretungen möglich werden.[^05-ergebnisse-je-leitfrage__fn2]
 - **Prozesslandkarte:** Für BAMF- und Nicht-BAMF-Angebote wurden Phasen, Zuständigkeiten, Unterlagen und Kommunikationsschritte dokumentiert – inklusive Synchronität zwischen CMX-System und physischen Kursordnern.[^05-ergebnisse-je-leitfrage__fn3]
 - **Dokumenten-Standards:** Eine Kursarten-Matrix bündelt Nachweise, Formate, Ablageorte und Verantwortlichkeiten und schafft eine verbindliche Drehscheibe für Prüfungen und Audits.[^05-ergebnisse-je-leitfrage__fn4]
+- **Formular-Workflow:** Aufnahmebögen, Einstufungstests, Bedarfsgespräche und Teilnahmebescheinigungen wurden entlang des Teilnehmenden-Lebenszyklus verortet, um ESF- und BAMF-Vorgaben durchgängig abzubilden.[^05-ergebnisse-je-leitfrage__fn17]
+- **Dozierendenanforderungen:** Das Handbuch greift die im Selbstreport beschriebenen Qualifikationsprofile auf, damit fachliche, didaktische und digitale Standards pro Kursart transparent dokumentiert sind.[^05-ergebnisse-je-leitfrage__fn18]
 
 ### Messung und Indikatoren
 
 - Abgestimmte Rollenprofile werden jährlich geprüft und bei Personalwechseln in Onboarding-Gesprächen genutzt.[^05-ergebnisse-je-leitfrage__fn5]
 - CMX-Einträge und Kursordner werden mit einer einheitlichen Benennungslogik abgeglichen; Checklisten für Originalversand und Posteingang sichern die Vollständigkeit.[^05-ergebnisse-je-leitfrage__fn6][^05-ergebnisse-je-leitfrage__fn7][^05-ergebnisse-je-leitfrage__fn8]
+- Formularsätze und Evaluationsbögen werden kursweise abgelegt und ausgewertet, um Zufriedenheit, Lernerfolg und behördliche Anforderungen zu belegen.[^05-ergebnisse-je-leitfrage__fn19]
 
 **Ergebnis:** Die Leitfrage wurde erfüllt, weil alle Kernrollen, Prozessketten und Dokumentanforderungen konsistent erfasst sind und somit als Referenz für Onboarding, Vertretungen und Zertifizierungsnachweise dienen.
 
@@ -24,11 +27,13 @@ Die Qualitätsgruppe überprüfte alle Leitfragen anhand der projektspezifischen
 - **Infrastrukturübersicht:** Kapitel 04 dokumentiert IT/EDV, Raumressourcen, Supportwege und offene Punkte (z. B. Inventar, Account-Basics), sodass technische Zuständigkeiten transparent werden.[^05-ergebnisse-je-leitfrage__fn9]
 - **Kommunikationswege:** Kapitel 06 listet interne und externe Kontakte, genutzte Kanäle, wiederkehrende Meldungen und Verantwortlichkeiten, womit Übergaben und Abstimmungen nachvollziehbar bleiben.[^05-ergebnisse-je-leitfrage__fn10]
 - **Verzahnung mit Prozessen:** Die Prozesskapitel verknüpfen Schnittstellen (z. B. Jobcenter, BAMF, Verbände) direkt mit den jeweiligen Abläufen und Dokumentenanforderungen.[^05-ergebnisse-je-leitfrage__fn11]
+- **Raum- und Arbeitsplatzbegehungen:** Regelmäßige Inspektionen von Unterrichts- und Büroräumen sowie ein Dozierendenarbeitsraum fließen in den Infrastrukturteil ein und stellen den Transfer aus den Anlagen sicher.[^05-ergebnisse-je-leitfrage__fn20]
 
 ### Messung und Indikatoren
 
 - Für Kommunikationslinien (BAMF, Jobcenter, Verbände, Ministerium) existieren aktualisierte Kontakt- und Meldepläne, die im Qualitätszirkel überprüft werden.[^05-ergebnisse-je-leitfrage__fn12]
 - Infrastruktur-Quick-Wins (Mini-Inventar, Passwort-/Account-Regeln, Master-Raumplan) werden innerhalb von 4–6 Wochen umgesetzt und im Themenplan dokumentiert.[^05-ergebnisse-je-leitfrage__fn13]
+- Ergebnisse der Raumbegehungen und Hospitationen werden protokolliert und in Teamsitzungen ausgewertet, um technische und räumliche Verbesserungen schnell umzusetzen.[^05-ergebnisse-je-leitfrage__fn21]
 
 **Ergebnis:** Die Leitfrage wurde beantwortet, da Infrastruktur- und Kommunikationsschnittstellen nun eindeutig beschrieben und in die Prozessdokumentation integriert sind.
 
@@ -39,11 +44,13 @@ Die Qualitätsgruppe überprüfte alle Leitfragen anhand der projektspezifischen
 - **Themen- und Maßnahmenplan:** Das Fazit-Kapitel definiert priorisierte Themenpakete samt Zielbildern, ersten Schritten und Review-Takten, wodurch kontinuierliche Verbesserungen geplant werden können.[^05-ergebnisse-je-leitfrage__fn14]
 - **Evaluationsinstrument:** Ein standardisierter Mitarbeitendenfragebogen im Anhang misst Nutzung, Wirkung, Beteiligung und Verbesserungsvorschläge zum Handbuch.[^05-ergebnisse-je-leitfrage__fn15]
 - **Projektanforderungen erfüllt:** Die Dokumentation adressiert die ZBQ-Vorgaben, indem sie Projektziele, Maßnahmen, Ergebnisse und Prüfpfade nachvollziehbar abbildet.[^05-ergebnisse-je-leitfrage__fn1]
+- **Verzahnung mit Teilnehmendenfeedback:** Die im Qualitätsmanagement etablierten Evaluationsprozesse liefern quantitative und qualitative Rückmeldungen, die in den Maßnahmenplan und die Dokumentation übernommen werden.[^05-ergebnisse-je-leitfrage__fn19]
 
 ### Messung und Indikatoren
 
 - Mindestens zwei Themenpakete werden pro Rezertifizierungszyklus mit dokumentierten Review-Ergebnissen umgesetzt und im Handbuch nachgezogen.[^05-ergebnisse-je-leitfrage__fn16]
 - Die jährliche Evaluation liefert quantitative Einschätzungen zu Nutzung, Qualität und Beteiligung und dient als Trigger für Updates.[^05-ergebnisse-je-leitfrage__fn15]
+- Dozierendenbesprechungen und Fortbildungsprotokolle ergänzen die Evaluationsdaten, sodass Kompetenzbedarfe und Prozessanpassungen zeitnah eingearbeitet werden können.[^05-ergebnisse-je-leitfrage__fn22]
 
 **Ergebnis:** Die Leitfrage ist beantwortet, weil das Handbuch um konkrete Review-Mechanismen ergänzt wurde, die sowohl Qualitätsziele als auch Nutzerfeedback absichern.
 
@@ -64,3 +71,9 @@ Die Qualitätsgruppe überprüfte alle Leitfragen anhand der projektspezifischen
 [^05-ergebnisse-je-leitfrage__fn14]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–67.
 [^05-ergebnisse-je-leitfrage__fn15]: Quelle: `kapitel/09-anhang/index.md`, Zeilen 3–67.
 [^05-ergebnisse-je-leitfrage__fn16]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–76.
+[^05-ergebnisse-je-leitfrage__fn17]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 492–518.
+[^05-ergebnisse-je-leitfrage__fn18]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 552–587.
+[^05-ergebnisse-je-leitfrage__fn19]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 656–693.
+[^05-ergebnisse-je-leitfrage__fn20]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 700–747.
+[^05-ergebnisse-je-leitfrage__fn21]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 705–754.
+[^05-ergebnisse-je-leitfrage__fn22]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 646–654.

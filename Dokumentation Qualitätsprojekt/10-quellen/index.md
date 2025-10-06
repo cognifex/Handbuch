@@ -82,6 +82,10 @@ Das Quellenverzeichnis sammelt sämtliche Nachweise für die Kapitel der Projekt
 [^04-vorgehensweise-und-arbeitspakete__fn17]: Quelle: `kapitel/03-prozesse/index.md`, Zeilen 96–160.
 [^04-vorgehensweise-und-arbeitspakete__fn18]: Quelle: `kapitel/05-dokumentenmanagement-und-ablage/index.md`, Zeilen 21–62.
 [^04-vorgehensweise-und-arbeitspakete__fn19]: Quelle: `kapitel/01-einleitung-und-geltungsbereich/index.md`, Zeilen 7–24.
+[^04-vorgehensweise-und-arbeitspakete__fn20]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 492–518.
+[^04-vorgehensweise-und-arbeitspakete__fn21]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 656–693.
+[^04-vorgehensweise-und-arbeitspakete__fn22]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 646–654.
+[^04-vorgehensweise-und-arbeitspakete__fn23]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 700–754.
 [^05-ergebnisse-je-leitfrage__fn1]: Quelle: `Dokumentationsformular_ZBQ_2025.txt`, Zeilen 31–47.
 [^05-ergebnisse-je-leitfrage__fn2]: Quelle: `kapitel/02-rollen-und-verantwortlichkeiten/index.md`, Zeilen 5–147.
 [^05-ergebnisse-je-leitfrage__fn3]: Quelle: `kapitel/03-prozesse/index.md`, Zeilen 64–200.
@@ -98,6 +102,12 @@ Das Quellenverzeichnis sammelt sämtliche Nachweise für die Kapitel der Projekt
 [^05-ergebnisse-je-leitfrage__fn14]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–67.
 [^05-ergebnisse-je-leitfrage__fn15]: Quelle: `kapitel/09-anhang/index.md`, Zeilen 3–67.
 [^05-ergebnisse-je-leitfrage__fn16]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–76.
+[^05-ergebnisse-je-leitfrage__fn17]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 492–518.
+[^05-ergebnisse-je-leitfrage__fn18]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 552–587.
+[^05-ergebnisse-je-leitfrage__fn19]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 656–693.
+[^05-ergebnisse-je-leitfrage__fn20]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 700–747.
+[^05-ergebnisse-je-leitfrage__fn21]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 705–754.
+[^05-ergebnisse-je-leitfrage__fn22]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 646–654.
 [^06-zeitplan-und-meilensteine__fn1]: Quelle: `Dokumentationsformular_ZBQ_2025.txt`, Zeilen 1–47.
 [^06-zeitplan-und-meilensteine__fn2]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 13–76.
 [^06-zeitplan-und-meilensteine__fn3]: Quelle: `kapitel/01-einleitung-und-geltungsbereich/index.md`, Zeilen 30–34.
@@ -107,6 +117,9 @@ Das Quellenverzeichnis sammelt sämtliche Nachweise für die Kapitel der Projekt
 [^06-zeitplan-und-meilensteine__fn7]: Quelle: `Dokumentationsformular_ZBQ_2025.txt`, Zeilen 31–47.
 [^06-zeitplan-und-meilensteine__fn8]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–76.
 [^06-zeitplan-und-meilensteine__fn9]: Quelle: `kapitel/06-kommunikation/index.md`, Zeilen 45–58.
+[^06-zeitplan-und-meilensteine__fn10]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 492–518.
+[^06-zeitplan-und-meilensteine__fn11]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 656–693.
+[^06-zeitplan-und-meilensteine__fn12]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 705–754.
 [^07-wirkung-und-nachhaltigkeit__fn1]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 3–76.
 [^07-wirkung-und-nachhaltigkeit__fn2]: Quelle: `Dokumentationsformular_ZBQ_2025.txt`, Zeilen 31–47.
 [^07-wirkung-und-nachhaltigkeit__fn3]: Quelle: `kapitel/02-rollen-und-verantwortlichkeiten/index.md`, Zeilen 5–147.
@@ -118,6 +131,10 @@ Das Quellenverzeichnis sammelt sämtliche Nachweise für die Kapitel der Projekt
 [^07-wirkung-und-nachhaltigkeit__fn9]: Quelle: `kapitel/09-anhang/index.md`, Zeilen 3–67.
 [^07-wirkung-und-nachhaltigkeit__fn10]: Quelle: `kapitel/02-rollen-und-verantwortlichkeiten/index.md`, Zeilen 85–147.
 [^07-wirkung-und-nachhaltigkeit__fn11]: Quelle: `kapitel/05-dokumentenmanagement-und-ablage/index.md`, Zeilen 21–62.
+[^07-wirkung-und-nachhaltigkeit__fn12]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 492–511.
+[^07-wirkung-und-nachhaltigkeit__fn13]: Quelle: `Quellen/Dokumentationsformular_ZBQ_2025.txt`, Zeilen 25–47.
+[^07-wirkung-und-nachhaltigkeit__fn14]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 700–754.
+[^07-wirkung-und-nachhaltigkeit__fn15]: Quelle: `Quellen/Selbstreport3.txt`, Zeilen 646–654.
 [^08-naechste-schritte__fn1]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 9–76.
 [^08-naechste-schritte__fn2]: Quelle: `Dokumentationsformular_ZBQ_2025.txt`, Zeilen 31–47.
 [^08-naechste-schritte__fn3]: Quelle: `kapitel/07-themen-und-fazit/index.md`, Zeilen 71–76.

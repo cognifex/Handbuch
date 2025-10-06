@@ -11,3 +11,6 @@ Der Zeitplan orientiert sich an den ZBQ-Vorgaben sowie an den Arbeitszyklen der 
 | Ab KW 21 | Umsetzung Quick Wins & Evaluation | Umsetzung Master-Raumplan, Originalversand-Checkliste, Mini-Inventar; Start der ersten Evaluationsrunde.[^06-zeitplan-und-meilensteine__fn2][^06-zeitplan-und-meilensteine__fn6] |
 
 Die Meilensteine werden im Qualitätszirkel fortgeschrieben; Nachsteuerungen (z. B. aufgrund von Fördervorgaben) werden direkt in den Themenplan und die Dokumentation übernommen.[^06-zeitplan-und-meilensteine__fn8][^06-zeitplan-und-meilensteine__fn9]
+Die Interviewphase bezog systematisch Formular- und Prozessunterlagen ein, damit Einstufungstests, Bedarfsgespräche und Teilnahmebescheinigungen bereits in der Analyse korrekt verortet werden konnten.[^06-zeitplan-und-meilensteine__fn10]
+In der Validierungsphase wurden parallel die etablierten Evaluations- und Feedbackschleifen (Teilnehmendenfragebogen, Dozierendenfeedback) herangezogen, um Wirkung und Anschlussmaßnahmen zu planen.[^06-zeitplan-und-meilensteine__fn11]
+Ab Umsetzung der Quick Wins greifen zudem wiederkehrende Raum- und Arbeitsplatzbegehungen, deren Ergebnisse in Teamsitzungen und Dokumentation einfließen.[^06-zeitplan-und-meilensteine__fn12]
